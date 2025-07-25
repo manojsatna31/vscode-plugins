@@ -176,7 +176,7 @@ We'll use the official generator to create the basic project structure.
     ? Bundle the source code with webpack? Yes
     ? Which package manager to use? npm
     ```
-4. This will create a new folder named py-ts-demo. Open this folder in VS Code:
+4. This will create a new folder named hybrid-demo. Open this folder in VS Code:
     ```bash
     cd hybrid-demo
     code .
@@ -283,7 +283,7 @@ Choose one of the following two options for your backend.
 #### Option A: Python Backend
 1.  Create the Python Backend Script
 This script will be responsible for processing the data. It will read a line from its standard input, process it, and print the result to its standard output.
-1. Inside your py-ts-demo project folder, create a new folder named scripts.
+1. Inside your hybrid-demo project folder, create a new folder named scripts.
 2. Inside the scripts folder, create a new file named process_data.py.
 3. Add the following Python code to process_data.py:
     ```python
@@ -464,10 +464,6 @@ code --install-extension your-extension-0.0.1.vsix
   }
 }
 ```
-
----
-
-
 
 ---
 
