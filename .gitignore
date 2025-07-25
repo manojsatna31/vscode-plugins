@@ -137,3 +137,13 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+
+.vscode/**
+.vscode-test/**
+node_modules/**
+out/test/**
+vsc-extension-quickstart.md
+
+# Exclude all Java source and build files...
+java_backend/target/*
