@@ -20,28 +20,30 @@ Write-Host-Colored "=============================================" "Cyan"
 Write-Host-Colored "🚀 STARTING HYBRID EXTENSION BUILD 🚀" "Cyan"
 Write-Host-Colored "=============================================" "Cyan"
 
-# 1. Install Node.js dependencies
+# # 1. Install Node.js dependencies
 Write-Host-Colored "`n[1/4] Installing Node.js dependencies..." "Yellow"
 npm install
 
-# 2. Compile TypeScript
+# # 2. Compile TypeScript
 Write-Host-Colored "`n[2/4] Compiling TypeScript..." "Yellow"
 npm run compile
 
 # 3. Build Java Backend with Maven
 Write-Host-Colored "`n[3/4] Building Java backend with Maven (Fat JAR)..." "Yellow"
 # The -f flag explicitly points to the pom.xml location
-mvn -f "$javaBackendPath\pom.xml" clean package
+mvn -f "$javaBackendPath\pom.xml" clean 
+mvn -f "$javaBackendPath\pom.xml" package
 if ($LASTEXITCODE -ne 0) {
     Write-Host-Colored "❌ Maven build failed." "Red"
     exit 1
 }
 Write-Host-Colored "✅ Java build successful." "Green"
-
+# Set-Location "$javaBackendPath\target"
+# Get-ChildItem
 # 4. Package the VS Code Extension
 Write-Host-Colored "`n[4/4] Packaging the VS Code extension (.vsix)..." "Yellow"
-vsce package --ignore-recommendations --out "$vsixName.vsix"
-
+vsce package --out "$vsixName.vsix"
+vsce ls "$vsixName.vsix"
 Write-Host-Colored "`n=============================================" "Cyan"
 Write-Host-Colored "🎉 BUILD COMPLETE! 🎉" "Cyan"
 Write-Host-Colored "Your extension is ready: .\$vsixName.vsix" "Green"
